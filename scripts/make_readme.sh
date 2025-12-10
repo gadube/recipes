@@ -2,11 +2,14 @@
 
 THIS_DIR=$(dirname $0)
 
-README_CONTENTS=$(cat $THIS_DIR/../templates/README.template.md)
+echo "" > "$THIS_DIR/../README.md"
+while IFS= read -r LINE; do
+  # Process each line here
+  echo "$LINE" >> "$THIS_DIR/../README.md"
+done < $THIS_DIR/../templates/README.template.md
 
 FILE_LIST=$(find $THIS_DIR/../recipes -type f)
 
-echo $README_CONTENTS > "$THIS_DIR/../README.md"
 echo "" >> "$THIS_DIR/../README.md"
 echo "" >> "$THIS_DIR/../README.md"
 
