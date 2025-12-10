@@ -4,7 +4,7 @@ THIS_DIR=$(dirname $0)
 
 README_CONTENTS=$(cat $THIS_DIR/../templates/README.template.md)
 
-FILE_LIST=$(ls -lt1 $THIS_DIR/../recipes)
+FILE_LIST=$(find $THIS_DIR/../recipes -type f)
 
 echo $README_CONTENTS > "$THIS_DIR/../README.md"
 echo "" >> "$THIS_DIR/../README.md"
@@ -12,7 +12,8 @@ echo "" >> "$THIS_DIR/../README.md"
 
 for FILE in $FILE_LIST
 do 
-  FILE_WITHOUT_EXTENSION=${FILE%.md}
+  BASENAME=$(basename $FILE)
+  FILE_WITHOUT_EXTENSION=${BASENAME%.md}
   DISPLAY_NAME=${FILE_WITHOUT_EXTENSION//-/ }
 
   CAPITALIZED_DISPLAY_NAME=""
@@ -23,5 +24,5 @@ do
   done
 
   CAPITALIZED_DISPLAY_NAME=`echo $CAPITALIZED_DISPLAY_NAME | xargs`
-  echo "($CAPITALIZED_DISPLAY_NAME)[$FILE]" >> "$THIS_DIR/../README.md"
+  echo "- [$CAPITALIZED_DISPLAY_NAME]($FILE)" >> "$THIS_DIR/../README.md"
 done
