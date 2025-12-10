@@ -1,12 +1,14 @@
 #!/bin/bash -e
 
-README_CONTENTS=$(cat ../templates/README.md)
+THIS_DIR=$(dirname $0)
 
-FILE_LIST=$(ls -lt1 ../recipes)
+README_CONTENTS=$(cat $THIS_DIR/../templates/README.template.md)
 
-echo $README_CONTENTS >> ../README.md
-echo "" >> ../README.md
-echo "" >> ../README.md
+FILE_LIST=$(ls -lt1 $THIS_DIR/../recipes)
+
+echo $README_CONTENTS > "$THIS_DIR/../README.md"
+echo "" >> "$THIS_DIR/../README.md"
+echo "" >> "$THIS_DIR/../README.md"
 
 for FILE in $FILE_LIST
 do 
@@ -21,5 +23,5 @@ do
   done
 
   CAPITALIZED_DISPLAY_NAME=`echo $CAPITALIZED_DISPLAY_NAME | xargs`
-  echo "($CAPITALIZED_DISPLAY_NAME)[$FILE]" >> ../README.md
+  echo "($CAPITALIZED_DISPLAY_NAME)[$FILE]" >> "$THIS_DIR/../README.md"
 done
