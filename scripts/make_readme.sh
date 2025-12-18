@@ -8,7 +8,7 @@ while IFS= read -r LINE; do
   echo "$LINE" >> "$THIS_DIR/../README.md"
 done < $THIS_DIR/../templates/README.template.md
 
-FILE_LIST=$(find $THIS_DIR/../recipes -type f)
+FILE_LIST=$(find $THIS_DIR/../src -type f)
 
 echo "" >> "$THIS_DIR/../README.md"
 echo "" >> "$THIS_DIR/../README.md"
