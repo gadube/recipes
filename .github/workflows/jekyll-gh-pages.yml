@@ -28,12 +28,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Make script executable
-        run: chmod +x scripts/make_readme.sh
-      - name: Update README.md TOC
-        run: ./scripts/make_readme.sh
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          # Specific version
+          version: "0.9.18"
+
+      - name: Install the project
+        run: uv sync --locked
+
+      - name: Update README.md, TOC, and Tags
+        run: make README.md
+
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:

@@ -1,3 +1,8 @@
+---
+title: Buffalo Chicken Dip
+tags: ["sides", "whole30", "chicken", "dips"]
+---
+
 # Buffalo Chicken Dip
 
 ## Ingredients
