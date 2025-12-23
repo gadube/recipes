@@ -10,6 +10,8 @@ tags: ["sides", "whole30", "chicken", "dips"]
 - 0.5 cups Buffalo Sauce
 
 ### Optional (add creaminess)
+
+*NOTE: Makes things non-whole30*
 - 6 oz Cream Cheese
 - 1 tbsp Boursin Cheese
 
