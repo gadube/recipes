@@ -44,7 +44,7 @@ class Tags:
 
                 for path in paths:
                     recipe_title = path.stem.replace("-", " ").title()
-                    fp.write(f"- [{recipe_title}](/{path.with_suffix('.html')})\n")
+                    fp.write(f"- [{recipe_title}](/recipes/{path.with_suffix('.html')})\n")
 
     @staticmethod
     def get_tags_from_frontmatter(frontmatter: dict[str, Any]) -> list[str]:
