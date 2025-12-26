@@ -5,7 +5,6 @@ from frontmatter import FrontmatterReader
 
 class Tags:
     """Gather Tag Metadata"""
-
     data: dict[str, list[Path]]
 
     def __init__(self, sources: Path | str):
@@ -37,11 +36,15 @@ class Tags:
             tag_page_name = tag.replace(" ", "-").lower() + ".md"
             tag_page = output_dir / tag_page_name
             with open(tag_page, "w") as fp:
-                fp.write(f"# {tag.replace('-',' ').title()}\n\n")
+                fp.write("---\n")
+                fp.write("layout: tag\n")
+                fp.write(f"title: {tag.replace('-',' ').title()}\n")
+                fp.write("---\n\n")
+                # fp.write(f"# {tag.replace('-',' ').title()}\n\n")
 
                 for path in paths:
                     recipe_title = path.stem.replace("-", " ").title()
-                    fp.write(f"- [{recipe_title}](/recipes/{path.with_suffix('.html')})\n")
+                    fp.write(f"- [{recipe_title}](/{path.with_suffix('.html')})\n")
 
     @staticmethod
     def get_tags_from_frontmatter(frontmatter: dict[str, Any]) -> list[str]:

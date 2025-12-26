@@ -1,9 +1,8 @@
 ---
 title: Buffalo Chicken Dip
 tags: ["sides", "whole30", "chicken", "dips"]
+date: 2025-12-26
 ---
-
-# Buffalo Chicken Dip
 
 ## Ingredients
 - 2 Chicken Breasts

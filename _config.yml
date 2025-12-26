@@ -1,1 +1,7 @@
 title: Griffin's Cookbook
+defaults:
+  - scope:
+      path: "src"
+    values:
+      layout: "recipe"
+
