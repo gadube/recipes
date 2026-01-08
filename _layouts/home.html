@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+<div class="heading">
+<h1>{{ site.title }}</h1>
+</div>
+<hr>
+
+<h2>Categories</h2>
+<!-- get all categories -->
+{% for my_doc in site.recipes %}
+
+{% for category in my_doc.categories %}
+  {% capture my_categories %}
+    {% if my_categories %}
+      {{ my_categories | join: "," }},{{ category }}
+    {% else %}
+       {{ category }}
+    {% endif %}
+  {% endcapture %}
+{% endfor %}
+
+{% endfor %}
+
+{% assign my_categories = my_categories | split: "," | uniq %}
+  {% for category in my_categories %}
+    <a href="{{ site.url }}{{ site.baseurl }}recipes/category/{{ category | slugify }}">{{ category }}</a>
+    {% unless forloop.last %} &middot; {% endunless %}
+  {% endfor %}
+
+<div style="padding-top: 30px;">
+{% for collection in site.collections %}
+{% unless collection.label == "posts" %}
+<h2>{{collection.label | replace: "_", " " | capitalize }}</h2>
+{% for item in collection.docs %}
+<div class="post-entry">
+  <p>
+  {{ item.date | date_to_string }} &emsp;
+    <b><a href="{{ item.url | relative_url }}">{{ item.title }}</a></b>
+  </p>
+</div>
+{% endfor %}
+{% endunless %}
+{% endfor %}
+</div>
+
+<!-- This is where the content from the page's markdown file would go -->
+{{ content }}

@@ -1,6 +1,6 @@
 ---
-title: Buffalo Chicken Dip
-tags: ["sides", "whole30", "chicken", "dips"]
+title: "Buffalo Chicken Dip"
+categories: ["sides", "whole30", "chicken", "dips"]
 date: 2025-12-26
 ---
 
