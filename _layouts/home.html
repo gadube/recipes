@@ -25,7 +25,7 @@ layout: default
 
 {% assign my_categories = my_categories | split: "," | uniq %}
   {% for category in my_categories %}
-    <a href="{{ site.url }}{{ site.baseurl }}category/{{ category | slugify }}">{{ category }}</a>
+    <a href="{{ site.url }}{{ site.baseurl }}/recipes/category/{{ category | slugify }}">{{ category }}</a>
     {% unless forloop.last %} &middot; {% endunless %}
   {% endfor %}
 
