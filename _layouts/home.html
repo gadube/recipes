@@ -24,10 +24,12 @@ layout: default
 {% endfor %}
 
 {% assign my_categories = my_categories | downcase | split: "," | uniq %}
+<div style="max-width: 80ch;">
   {% for category in my_categories %}
     <a href="{{ site.url }}{{ site.baseurl }}/recipes/category/{{ category | slugify }}">{{ category }}</a>
     {% unless forloop.last %} &middot; {% endunless %}
   {% endfor %}
+</div>
 
 <div style="padding-top: 30px;">
 {% for collection in site.collections %}
