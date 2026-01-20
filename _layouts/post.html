@@ -9,11 +9,12 @@ layout: default
 <hr>
 <p style="font-size: 11pt;">
   <i>
-    <b>Tags:</b> 
     {% for category in page.categories %}
+    {%if forloop.first%}<b>Tags:</b> {% endif %}
     <a href="{{site.baseurl}}/recipes/category/{{category}}">{{category}}</a>{%unless forloop.last %}, {%endunless%}
     {% endfor %}
   </i>
 </p>
+
 
 {{ content }}
