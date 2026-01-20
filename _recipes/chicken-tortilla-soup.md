@@ -1,5 +1,5 @@
 ---
-categories: soup chicken
+categories: soup chicken dinner
 ---
 
 ## Ingredients
