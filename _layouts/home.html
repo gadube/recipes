@@ -34,12 +34,10 @@ layout: default
 {% unless collection.label == "posts" %}
 <h2>{{collection.label | replace: "_", " " | capitalize }}</h2>
 {% for item in collection.docs %}
-<div class="post-entry">
   <p>
   {{ item.date | date_to_string }} &emsp;
     <b><a href="{{ item.url | relative_url }}">{{ item.title }}</a></b>
   </p>
-</div>
 {% endfor %}
 {% endunless %}
 {% endfor %}

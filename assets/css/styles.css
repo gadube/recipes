@@ -40,6 +40,10 @@ html {
   list-style: none;
 }
 
+.archive li {
+  padding: 10px;
+}
+
 h1 {
   border-bottom-color: linear-gradient(to right, #4f4f4f, gray, white, white);
   border-bottom-width: thin;
