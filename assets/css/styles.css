@@ -79,3 +79,7 @@ hr {
   height: 1px;
   border: 0;
 }
+
+.post-content {
+  max-width: 120ch;
+}
